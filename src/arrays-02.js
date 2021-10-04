@@ -92,7 +92,8 @@ function makeAllLowerCase(str) {
  * ? ex: 'HELLO' => 'Hello'
  */
 function makeWordTitleCase(word) {
-  return word.charAt(0).toUpperCase() + word.substr(1).toLowerCase();
+  const newWord = word.charAt(0).toUpperCase() + word.substr(1).toLowerCase();
+  return newWord;
 }
 
 /**
@@ -117,12 +118,8 @@ function replaceTheString(str, oldStr, newStr) {
  */
 function makeSentenceTitleCase(sentence) {
   const words = splitTheString(sentence, ' ');
-  const titleWords = [];
-  // eslint-disable-next-line no-restricted-syntax
-  for (const word of words) {
-    titleWords.push(makeWordTitleCase(word));
-  }
-  return titleWords.join(' ');
+  const titleCaseArray = words.map((item) => makeWordTitleCase(item));
+  return titleCaseArray.join(' ');
 }
 
 module.exports = {
